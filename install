@@ -1,0 +1,37 @@
+#!/bin/bash
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+echo '📦 Installing packages ...'
+/opt/homebrew/bin/brew bundle --no-lock --quiet
+
+echo
+echo '🔗 Linking dotfiles ...'
+function link_dotfile() {
+    src="$(realpath "$0")"
+    dst="$HOME/$(realpath --relative-to=./dotfiles "$0")"
+    echo "Linking $dst"
+    mkdir -p "$(dirname "$dst")"
+    ln -fs "$src" "$dst"
+}
+export -f link_dotfile
+find ./dotfiles -type f -exec bash -c 'link_dotfile "$0"' {} \;
+
+echo
+echo '📄 Downloading global gitignore ...'
+wget -qO ~/.gitignore_global 'https://raw.githubusercontent.com/github/gitignore/main/Global/macOS.gitignore'
+
+source ~/.zprofile
+
+echo
+echo '🔌 Installing asdf plugins ...'
+(asdf plugin add nodejs 'https://github.com/asdf-vm/asdf-nodejs.git') || true
+
+echo
+echo '🔧 Configuring iTerm2 ...'
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$(realpath ./iterm2)"
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+echo
+echo '🎉 Done!'

@@ -1,0 +1,9 @@
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/sargunv/.gitignore_global
+	pager = less -+FX
+	editor = /Applications/Komet.app/Contents/MacOS/Komet
+[user]
+	name = Sargun Vohra
+	email = sargun.vohra@gmail.com

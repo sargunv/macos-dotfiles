@@ -1,0 +1,21 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[git_metrics]
+disabled = false
+
+[status]
+disabled = false
+
+[sudo]
+disabled = false
+
+[time]
+disabled = false
+style = "dimmed"
+
+[custom.arch]
+when = "[[ \"$(sysctl -in sysctl.proc_translated)\" != 0 ]]"
+symbol = " "
+command = "arch"
+style = ""
+description = "The current Terminal's architecture type"
