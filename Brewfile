@@ -39,6 +39,7 @@ cask "setapp"
 cask "signal"
 cask "brave-browser"
 cask "prusaslicer"
+cask "logi-options-plus"
 
 mas "Pixen", id: 525180431
 mas "Messenger", id: 1480068668
