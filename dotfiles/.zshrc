@@ -10,6 +10,7 @@ jq -s '.[0] * .[1]' \
     <(yj -tj <"$HOME/.config/starship_user.toml") |
     yj -jt >"$HOME/.config/starship.toml"
 
+export ITERM2_SQUELCH_MARK=1
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt
@@ -36,3 +37,6 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source homebrew/homebrew-command-not-found handler.sh
 znap eval zoxide 'zoxide init zsh'
+
+# extras
+source ~/.iterm2_shell_integration.zsh
