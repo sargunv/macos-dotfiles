@@ -5,6 +5,7 @@ disabled = false
 
 [status]
 disabled = false
+symbol = "✘"
 
 [sudo]
 disabled = false
