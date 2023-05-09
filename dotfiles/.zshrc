@@ -32,6 +32,9 @@ bindkey "^[[B" down-line-or-beginning-search
 autoload -Uz compinit
 compinit
 
+# completions
+source <(gt completion)
+
 # zsh plugins
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting

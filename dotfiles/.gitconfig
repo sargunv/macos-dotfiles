@@ -6,4 +6,6 @@
 	editor = /Applications/Komet.app/Contents/MacOS/Komet
 [user]
 	name = Sargun Vohra
-	email = sargun.vohra@gmail.com
+	email = sargun.vohra@findheadway.co
+[push]
+	autoSetupRemote = true

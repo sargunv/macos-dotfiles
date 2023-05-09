@@ -19,5 +19,21 @@ MANPATH=$GNU_MANPATH:$MANPATH
 # cargo / rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# asdf
-source "$(brew --prefix asdf)/libexec/asdf.sh"
+# stuff for Headway
+
+eval "$(fnm env --use-on-cd)"
+
+export PYCURL_SSL_LIBRARY=openssl
+export LDFLAGS="-L$(brew --prefix)/opt/openssl/lib"
+export CPPFLAGS="-I/$(brew --prefix)/opt/openssl/include"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+plugin=(
+  pyenv
+)
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"

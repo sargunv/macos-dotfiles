@@ -10,7 +10,7 @@ echo
 echo '🔗 Linking dotfiles ...'
 function link_dotfile() {
     src="$(realpath "$0")"
-    dst="$HOME/$(realpath --relative-to=./dotfiles "$0")"
+    dst="$HOME/$(grealpath --relative-to=./dotfiles "$0")"
     echo "Linking $dst"
     mkdir -p "$(dirname "$dst")"
     ln -fs "$src" "$dst"
@@ -22,16 +22,20 @@ echo
 echo '📄 Downloading global gitignore ...'
 wget -qO ~/.gitignore_global 'https://raw.githubusercontent.com/github/gitignore/main/Global/macOS.gitignore'
 
-source ~/.zprofile
-
 echo
-echo '🔌 Installing asdf plugins ...'
-(asdf plugin add nodejs 'https://github.com/asdf-vm/asdf-nodejs.git') || true
+echo '📄 Downloading iTerm shell integration ...'
+wget -qO ~/.iterm2_shell_integration.zsh https://iterm2.com/shell_integration/zsh
+
+source ~/.zprofile
 
 echo
 echo '🔧 Configuring iTerm2 ...'
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$(realpath ./iterm2)"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+echo
+echo '🔧 Configuring extras ...'
+brew link postgresql@14 --force
 
 echo
 echo '🎉 Done!'
