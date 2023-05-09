@@ -36,15 +36,8 @@ cask "1password"
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
 cask "setapp"
-cask "signal"
-cask "brave-browser"
-cask "prusaslicer"
 cask "logi-options-plus"
 
-mas "Pixen", id: 525180431
-mas "Messenger", id: 1480068668
-
-mas "Octotree", id: 1457450145
 mas "Refined GitHub", id: 1519867270
 mas "AdGuard for Safari", id: 1440147259
 mas "StopTheMadness", id: 1376402589
