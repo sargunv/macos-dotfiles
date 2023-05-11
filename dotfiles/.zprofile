@@ -19,7 +19,12 @@ MANPATH=$GNU_MANPATH:$MANPATH
 # cargo / rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# jetbrains toolbox
+export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
+
 # stuff for Headway
+
+export LOCAL_DATA_SOURCE=fixtures
 
 eval "$(fnm env --use-on-cd)"
 
